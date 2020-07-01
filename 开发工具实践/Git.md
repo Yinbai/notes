@@ -2,6 +2,22 @@
 
 
 
+### 分支管理
+
+`git branch (branchname)`
+
+`git checkout (branchname)`
+
+`git checkout -b (branchname)` 创建并切换到分支
+
+`git branch` 列出本地分支
+
+`git branch -a`	列出所有分支
+
+`git branch -d (branchname)`	删除分支
+
+
+
 ### 合并
 
 
