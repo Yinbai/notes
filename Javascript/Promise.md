@@ -1,17 +1,8 @@
-# ES6 API
-
-## 数组
-
-
-
-
-
-## Promise
+# Promise
 
 > 1. 只有三种状态，一旦确定就不可更改
 > 2. 每次 .then() 或 .catch() 会返回新的 Promise 对象，如果值不是 Promise 对象，也会被包装成 Promise.resolive('xxx')
 > 3. 每次 .then() 或 .catch() 不能返回当前的 Promise 对象，会报错
-> 4. 
 
 
 

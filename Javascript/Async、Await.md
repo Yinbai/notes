@@ -1,16 +1,8 @@
-# Promise、Async、Await
+# Async、Await
 
 > Async 和 Await 是 Promise 的语法糖
 
-
-
-## Promise
-
-
-
-## Async / Await
-
-在事件循环中的执行流程：
+## 在事件循环中的执行流程
 
 1. 一个函数被定义为 async，表示它将被作为一个 Promise 对象返回，可以调用 `.then()`，函数 return 返回值作为 .then() 的参数
    - 如果这个 async 函数内 return 的是一个 Promise 对象，那么这个函数的返回值就是这个 Promise 对象
