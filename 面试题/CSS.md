@@ -41,8 +41,8 @@
 
    ```css
    更改盒模型的方法：
-   box-sizing: context-box | border-box | inherit
-   context-box，默认值，表示将宽高应用到元素的内容上，在宽高之外绘制元素的内边距和边框
+   box-sizing: content-box | border-box | inherit
+   content-box，默认值，表示将宽高应用到元素的内容上，在宽高之外绘制元素的内边距和边框
    border-box，表示将宽高应用到元素的内容、内边距、边框上
    ```
 
@@ -78,9 +78,9 @@
 
 10. 块级元素和行内元素
 
-   块级：`div 、form、h1-h6、hr、ol、ul、table、p`
+   - 块级：`div 、form、h1-h6、hr、ol、ul、table、p`
 
-   行内：`a、span、img、i、input、label、select、textarea、b、em`
+   - 行内：`a、span、img、i、input、label、select、textarea、b、em`
 
 11. 清除浮动有哪些方法
 
@@ -105,8 +105,10 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     
-    // JS 控制，写个公共方法，超出多少文字就 ...
-    
+    结论：
+    // 1. 通过 display: -webkit-box，属于渐进增强的方式，不支持 IE 和火狐浏览器
+    // 2. 通过 :after 加上省略号和背景图，缺点是只能适配文字内容完全超出容器的情况，属于优雅降级的方式
+    // 3. 和产品沟通，能否根据字符串长度判断，超出多少长度就加省略号，缺点是每段文字都要计算长度
     ```
 
 14. 使用 Flex 布局：20 个元素，一排三个，两端对齐，每个元素等宽 ?
@@ -117,9 +119,9 @@
     flex-direction: row | row-reverse | column | column-reverse
     flex-wrap(一条轴线放不下该怎么办): no-wrap | wrap | wrap-reverse
     flex-flow(上面两个的简写): row no-wrap
-    justify-context(主轴的对齐方式): flex-start | flex-end | center | space-between | space-around
+    justify-content(主轴的对齐方式): flex-start | flex-end | center | space-between | space-around
     align-items(交叉轴对齐方式): flex-start | flex-end | center | baseline | 默认值(占满容器高度)
-    align-context(多轴线的对齐方式): flex-start | flex-end | center | space-between | space-around
+    align-content(多轴线的对齐方式): flex-start | flex-end | center | space-between | space-around
     作用于项目的属性：
     order: 定义项目的排列顺序，越小越靠前，默认 0，可以为负数
     flex-grow: 定义项目的放大比例，默认 0。如果所有项目此值为 1，则平分空间；值为 2，则多占据一倍的空间
@@ -141,7 +143,7 @@
     ```css
     行内元素水平居中：text-align:center;
     行内文字垂直居中：line-height: height;
-    多行文字垂直居中：父级设置 display: table-cell; vertical-align:middle;
+    多行文字垂直居中：父级设置 display: table-cell; vertical-align: middle;
     单一块级水平居中：margin: auto;
     多个块级水平居中：父级设置 text-align: center; 子级设置 display: inline-block;
     
@@ -158,15 +160,16 @@
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    2. CSS3 transform
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     3. flex
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    通用方法，兼容未知宽高和已知宽高，CSS3 transform
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     ```
 
 17. CSS 动画
